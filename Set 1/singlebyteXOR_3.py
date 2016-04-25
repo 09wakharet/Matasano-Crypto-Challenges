@@ -3,9 +3,6 @@ import collections
 from operator import itemgetter
 
 test = "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736"
-
-#TODO return key
-
 #str1 is a hex string, byte a hex byte
 #returns a valid ascii string
 #throws away strings with non-english characters (returns none)
@@ -15,7 +12,7 @@ def xor_byte(str1, byte):
     for i in xrange(len(array)):
         array[i] ^= int(byte,16)
         if array[i]>126 or array[i]<32:
-            return
+            return#TODO update which values are thrown out - allow specials chars
     return str(array)
 
 #naive letter frequency analysis
@@ -30,7 +27,7 @@ def naive_score(str1):
     ref2 = list("shrdlu")
     ref3 = list("bcfgjkmnpqvwxyz0123456789")
     for k in frequencies:
-        v = temp[k]
+        v = frequencies[k]
         if k in ref1:
             score += 3*v
         elif k in ref2:
@@ -104,7 +101,7 @@ def printNtranslations(str1, N):
         retvals.append(dictvals[i][0])
     return zip(*[retvals, get_keys(str1, retvals)])
 
-#vals = printNtranslations(test,6)
+#vals =  printNtranslations(test,256)
 #vals = dict_scores(test)
 #for string in vals:
 #    print string
