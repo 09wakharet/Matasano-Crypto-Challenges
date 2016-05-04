@@ -73,7 +73,7 @@ def breaktext(str1,size):
     substrings = [str1[i:i+2] for i in range(0, len(str1), 2)]
     blocks = [substrings[i::size] for i in range(size)]
     blocks = ["".join(block) for block in blocks]
-    print xor.printNtranslations(blocks[0],1)#some blocks still get numm translations
+    print xor.printNtranslations(blocks[0],1)#some blocks still get no translations
     #--> TODO check the single key decrypt method
     key = [xor.printNtranslations(block,1)[0][1][2:].zfill(2) for block in blocks]
     return "0x"+"".join(key)
