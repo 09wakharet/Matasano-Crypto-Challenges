@@ -60,7 +60,7 @@ def chi2_score(str1):
         chi2 += float(pow(obs-exp,2)/exp)
     if ignored/len(str1) > .5:
         return 100000
-    return chi2
+    return chi2 + 2*ignored
 
 def dict_scores(str1):
     ciphers = []
@@ -102,9 +102,10 @@ def printNtranslations(str1, N):
         retvals.append(dictvals[i][0])
     return zip(*[retvals, get_keys(str1, retvals)])
 
-test2="4e07644e1a0f14004e4e1a1d1701074e490d4e190b0a4e4e640c1b010b4e0227000f3d3a1c1c000d1c024e1e0f6427640217001e4e2d001a0614070707000a491c1a1a4e4e08371d0b0b011a0a1c640b4e061742091d1a1d170a171d06063e0b4e0305"
-vals =  printNtranslations(test2,5)
-vals = dict_scores(test2)
-for string in vals:
-    print string
+#test2="4e07644e1a0f14004e4e1a1d1701074e490d4e190b0a4e4e640c1b010b4e0227000f3d3a1c1c000d1c024e1e0f6427640217001e4e2d001a0614070707000a491c1a1a4e4e08371d0b0b011a0a1c640b4e061742091d1a1d170a171d06063e0b4e0305"
+#vals =  printNtranslations(test2,5)
+#vals = dict_scores(test2)
+#for string in vals:
+#    print string
 #TODO fix chi2 score for this problem string
+#should give the string starting i\n
