@@ -1,4 +1,4 @@
 import XOR as xor
 
 
-xor.printNtranslations("ab",1)
+print xor.printNtranslations("ab",1)
